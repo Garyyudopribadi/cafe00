@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACID &amp; GRAIN CAFE</title>
+  <meta name="description"
+    content="An independent editorial treatise on coffee extraction, wild sourdough fermentation, and intentional café culture.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Top System Telemetry Bar -->
+  <aside class="system-status-bar" aria-label="Roastery Telemetry">
+    <div class="status-indicator" id="roastery-status">
+      <span class="status-dot"></span> EXTRACTION LIVE [ACTIVE]
+    </div>
+    <div>STATION 04 // MANIFESTO VOL. IV</div>
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <span id="live-clock">00:00:00 HRS</span>
+    </div>
+  </aside>
+
+  <!-- Live Marquee Ticker -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <div class="ticker-item">MANIFESTO: AGAINST THE CORPORATE BLANDING OF COFFEE</div>
+      <div class="ticker-item">TERROIR CANNOT BE MANUFACTURED IN A CHEMICAL FLASK</div>
+      <div class="ticker-item">PRINT IS NOT DEAD // NEITHER IS ACIDITY</div>
+      <div class="ticker-item">100% DIRECT TRADE · NO INTERMEDIARY EXPORTERS</div>
+      <div class="ticker-item">MANIFESTO: AGAINST THE CORPORATE BLANDING OF COFFEE</div>
+      <div class="ticker-item">TERROIR CANNOT BE MANUFACTURED IN A CHEMICAL FLASK</div>
+    </div>
+  </div>
+
+  <!-- Primary Navigation -->
+  <header class="site-header">
+    <nav class="header-grid" aria-label="Main Navigation">
+      <div class="brand-col">
+        <a href="index.html" class="brand-mark" aria-label="Acid & Grain Homepage">
+          <span>ACID &amp;</span>
+          <span>Grain.</span>
+        </a>
+        <div class="brand-badge-pill" title="Current Batch">
+          <span class="status-dot" style="width: 6px; height: 6px;"></span>
+          <span>ROASTERY 01</span>
+        </div>
+      </div>
+
+      <div class="nav-links-col">
+        <a href="index.html" class="nav-item">
+          <span class="index-tag">01//</span> HOME
+        </a>
+        <a href="menu.html" class="nav-item">
+          <span class="index-tag">02//</span> MENU
+          <span class="nav-slip-badge" id="nav-slip-count" style="display: none;">(0)</span>
+        </a>
+        <a href="about.html" class="nav-item active">
+          <span class="index-tag">03//</span> ABOUT
+        </a>
+        <a href="contact.html" class="nav-item">
+          <span class="index-tag">04//</span> CONTACT
+        </a>
+      </div>
+
+      <div class="header-actions-col">
+        <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Roast Mode">
+          <span class="toggle-indicator-dot" aria-hidden="true"></span>
+          <span class="theme-text">DARK ROAST</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-wrapper">
+    <!-- Editorial Hero -->
+    <section class="editorial-hero">
+      <div class="editorial-kicker">// TREATISE NO. 01 / EDITORIAL PHILOSOPHY</div>
+      <h1 class="editorial-giant-title">
+        The Death of Blandness <em>&amp;</em> the Birth of <em>Real Friction.</em>
+      </h1>
+      <div class="mono" style="font-size: 0.9rem; color: var(--text-muted); max-width: 650px;">
+        A recorded argument against pastels, automated pod machines, and the sanitized sameness that swallowed modern
+        café culture whole.
+      </div>
+    </section>
+
+    <!-- Asymmetrical Editorial Story Grid -->
+    <section class="story-columns">
+      <!-- Left Column: Context & Metadata -->
+      <aside class="story-col">
+        <div class="story-col-label">// THE PROVOCATION</div>
+        <p class="mono" style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 32px;">
+          Walk into any capital city from London to Seoul, and you will encounter the same beige chair, the same
+          monstera leaf, the same generic lo-fi playlist, and the same dark, oily beans roasted to charcoal so they can
+          survive twelve months in transit.
+        </p>
+
+        <div style="border: var(--border-thin); padding: 16px; background: var(--bg-card); margin-bottom: 24px;">
+          <div class="stamp" style="margin-bottom: 8px;">EQUIPMENT RIG</div>
+          <ul class="mono" style="font-size: 0.75rem; list-style: none; line-height: 1.8;">
+            <li>&bull; Kees van der Westen Spirit 3-Group</li>
+            <li>&bull; Mahlk&ouml;nig EK43S / Titus Burrs</li>
+            <li>&bull; Loring S15 Kestrel Roaster</li>
+            <li>&bull; Reverse Osmosis + Remineralization</li>
+          </ul>
+        </div>
+
+        <div style="border: var(--border-thin); padding: 16px; background: var(--bg-card);">
+          <div class="stamp stamp-outline" style="margin-bottom: 8px;">THE FLOUR SPEC</div>
+          <p class="mono" style="font-size: 0.75rem; line-height: 1.6; color: var(--text-muted);">
+            Heritage red fife, emmer wheat, and dark German rye milled within 72 hours of baking. 88% hydration
+            sourdough levain.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Center Column: The Primary Manifesto Text -->
+      <article class="story-col story-body">
+        <div class="story-col-label">// DISCOURSE</div>
+        <p class="lead">
+          Coffee was never meant to be comfortable. It is the charred seed of a tropical red cherry harvested on steep
+          volcanic slopes, packed with volatile chlorogenic acids and citric brightness.
+        </p>
+
+        <p>
+          Somewhere in the late 2010s, café culture capitulated. Spaces became co-working satellite offices designed to
+          be photographed on phones rather than tasted with the tongue. Food became soft, sugary sponge intended to
+          cushion an afternoon sugar crash. Coffee beans were scorched into submission to pair cleanly with artificial
+          pumps of hazelnut syrup.
+        </p>
+
+        <blockquote class="pull-quote">
+          “We do not roast coffee to make you sleepy; we roast it to wake your senses from the coma of commercial
+          mediocrity.”
+        </blockquote>
+
+        <p>
+          At <strong>ACID &amp; GRAIN</strong>, our philosophy is anchored in two immutable poles:
+        </p>
+
+        <p>
+          <strong>01. THE ACID:</strong> Acidity is not sourness. Acidity is vibrancy, life, structure, and terror. When
+          you taste a high-elevation Ethiopian heirloom bean extracted at precisely 9 bar pressure, you taste bergamot,
+          honeysuckle, and sparkling stone fruit. We celebrate that electric snap rather than baking it out of
+          existence.
+        </p>
+
+        <p>
+          <strong>02. THE GRAIN:</strong> Commercial sandwich bread is air and emulsifiers. Real bread is crust, chew,
+          smoke, and fermented sour tang. Our sourdough loaves are aged over 48 hours with wild yeasts captured from our
+          own roof garden, then baked on heavy volcanic stones until blistered almost black.
+        </p>
+
+        <p>
+          We do not offer generic loyalty stamp cards, wifi passwords to turn our benches into remote boardrooms, or
+          lukewarm polite apathy. We offer precision, sound, heat, and memory.
+        </p>
+      </article>
+
+      <!-- Right Column: Roaster's Log & Artifacts -->
+      <aside class="story-col">
+        <div class="story-col-label">// FIELD NOTES</div>
+
+        <div style="margin-bottom: 32px;">
+          <span class="mono" style="font-size: 0.75rem; color: var(--green-acid); font-weight: 700;">LOG 402 &bull; 08
+            NOV</span>
+          <h4 style="font-family: var(--font-display); font-size: 1.3rem; margin: 6px 0;">The anaerobic yeast trial</h4>
+          <p class="mono" style="font-size: 0.8rem; line-height: 1.6; color: var(--text-muted);">
+            Cupped the 72-hour anaerobic fermentation from Huila, Colombia today. Striking notes of dried blood orange
+            peel and cacao. Adjusted roast drop temperature to 204.5°C to preserve enzymatic florality.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+          <span class="mono" style="font-size: 0.75rem; color: var(--green-acid); font-weight: 700;">LOG 398 &bull; 01
+            NOV</span>
+          <h4 style="font-family: var(--font-display); font-size: 1.3rem; margin: 6px 0;">Water mineralization update
+          </h4>
+          <p class="mono" style="font-size: 0.8rem; line-height: 1.6; color: var(--text-muted);">
+            Bumped magnesium levels to 45ppm to selectively bind oxygenated aroma compounds in the washed Kenyan lots.
+            The finish lengthened by 40%.
+          </p>
+        </div>
+
+        <div style="border-top: var(--border-thin); padding-top: 24px;">
+          <a href="menu.html" class="btn-brutal" style="width: 100%;">
+            <span>ORDER TODAY'S ROAST</span>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Sourcing Transparency Table -->
+    <section>
+      <header class="section-header">
+        <div class="section-title">
+          <span class="section-counter">02.0 /</span> TERROIR &amp; SOURCING TRANSPARENCY REGISTRY
+        </div>
+        <div class="mono" style="font-size: 0.75rem; color: var(--text-muted);">
+          EVERY CENT ACCOUNTED FOR
+        </div>
+      </header>
+
+      <div class="data-table-wrap">
+        <table class="brutal-table">
+          <thead>
+            <tr>
+              <th>LOT NO.</th>
+              <th>ORIGIN &amp; REGION</th>
+              <th>PRODUCER / CO-OP</th>
+              <th>ALTITUDE</th>
+              <th>PROCESS METHOD</th>
+              <th>FOB PRICE PAID</th>
+              <th>FAIRTRADE MIN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#ET-2024-09</td>
+              <td>Guji, Oromia, Ethiopia</td>
+              <td>Tadesse Desta Station</td>
+              <td>2,350 &ndash; 2,450 MASL</td>
+              <td>Anaerobic Natural (96 hr)</td>
+              <td style="color: var(--green-acid); font-weight: bold;">$6.80 / lb</td>
+              <td>$1.80 / lb (+277%)</td>
+            </tr>
+            <tr>
+              <td>#KE-2024-14</td>
+              <td>Nyeri Hill, Kenya</td>
+              <td>Kagumo Farmers Society</td>
+              <td>1,920 MASL</td>
+              <td>Double Washed SL28 / SL34</td>
+              <td style="color: var(--green-acid); font-weight: bold;">$7.40 / lb</td>
+              <td>$1.80 / lb (+311%)</td>
+            </tr>
+            <tr>
+              <td>#CO-2024-22</td>
+              <td>Huila, Colombia</td>
+              <td>Finca El Paraiso (Diego Bermudez)</td>
+              <td>1,850 MASL</td>
+              <td>Thermal Shock Castillo</td>
+              <td style="color: var(--green-acid); font-weight: bold;">$9.50 / lb</td>
+              <td>$1.80 / lb (+427%)</td>
+            </tr>
+            <tr>
+              <td>#PA-2024-03</td>
+              <td>Boquete, Chiriqu&iacute;, Panama</td>
+              <td>Hacienda La Esmeralda</td>
+              <td>1,750 MASL</td>
+              <td>Washed Geisha Micro-lot</td>
+              <td style="color: var(--green-acid); font-weight: bold;">$24.00 / lb</td>
+              <td>$1.80 / lb (+1233%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Editorial Brutalist Footer -->
+  <footer class="site-footer">
+    <div class="footer-top-grid">
+      <div class="footer-col">
+        <div class="footer-brand">ACID &amp; <span>Grain.</span></div>
+        <p class="footer-tagline">
+          An editorial counter-offensive against commercial blandness. Small-batch light roasting, sourdough
+          fermentation, and physical printed coffee culture.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">// NAVIGATION</div>
+        <ul class="footer-links">
+          <li><a href="index.html">01 // HOME</a></li>
+          <li><a href="menu.html">02 // MENU</a></li>
+          <li><a href="about.html">03 // ABOUT</a></li>
+          <li><a href="contact.html">04 // CONTACT</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">// HOURS &amp; DOCK</div>
+        <div class="mono footer-schedule">
+          TUE &ndash; SUN: 07:00 &ndash; 22:00<br>
+          MON: LAB SHUTDOWN<br>
+          STATION 04 &bull; FORGE ALLEY 14
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">// SOCIAL &amp; CHANNELS</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-pill">
+            <span>↗</span> INSTAGRAM: @ACIDANDGRAIN
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-pill">
+            <span>↗</span> TIKTOK: @ACIDANDGRAIN
+          </a>
+          <a href="mailto:dispatch@acidandgrain.cafe" class="footer-social-pill">
+            <span>↗</span> EMAIL: DISPATCH@ACIDANDGRAIN.CAFE
+          </a>
+          <a href="tel:+18005552243" class="footer-social-pill">
+            <span>↗</span> PHONE: +1 (800) 555-ACID
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span>&copy; 2024&ndash;2026 ACID &amp; GRAIN. ALL RIGHTS OBSERVED.</span>
+      <span class="mono">ZERO COOKIES · ZERO TRACKERS · 100% PURE HTML/CSS/JS</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

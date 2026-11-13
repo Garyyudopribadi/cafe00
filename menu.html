@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACID &amp; GRAIN CAFE</title>
+  <meta name="description"
+    content="Printed-style menu tariff and live interactive order slip. Single-origin extractions, sourdough rations, natural wines.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Top System Telemetry Bar -->
+  <aside class="system-status-bar" aria-label="Roastery Telemetry">
+    <div class="status-indicator" id="roastery-status">
+      <span class="status-dot"></span> EXTRACTION LIVE [ACTIVE]
+    </div>
+    <div>STATION 04 // TARIFF REGISTRY EDITION 24</div>
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <span id="live-clock">00:00:00 HRS</span>
+    </div>
+  </aside>
+
+  <!-- Live Marquee Ticker -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <div class="ticker-item">INTERACTIVE TARIFF: CLICK ANY ITEM TO LOG TO ORDER SLIP</div>
+      <div class="ticker-item">PRICES INCLUDE TAX &amp; LIVING FARMER WAGES</div>
+      <div class="ticker-item">NO CASHLESS REFUSAL · CURRENCY ACCEPTED EQUALLY</div>
+      <div class="ticker-item">TODAY'S BREAD: 48-HR CULTURED ANCIENT RYE</div>
+      <div class="ticker-item">INTERACTIVE TARIFF: CLICK ANY ITEM TO LOG TO ORDER SLIP</div>
+      <div class="ticker-item">PRICES INCLUDE TAX &amp; LIVING FARMER WAGES</div>
+    </div>
+  </div>
+
+  <!-- Primary Navigation -->
+  <header class="site-header">
+    <nav class="header-grid" aria-label="Main Navigation">
+      <div class="brand-col">
+        <a href="index.html" class="brand-mark" aria-label="Acid & Grain Homepage">
+          <span>ACID &amp;</span>
+          <span>Grain.</span>
+        </a>
+        <div class="brand-badge-pill" title="Current Batch">
+          <span class="status-dot" style="width: 6px; height: 6px;"></span>
+          <span>ROASTERY 01</span>
+        </div>
+      </div>
+
+      <div class="nav-links-col">
+        <a href="index.html" class="nav-item">
+          <span class="index-tag">01//</span> HOME
+        </a>
+        <a href="menu.html" class="nav-item active">
+          <span class="index-tag">02//</span> MENU
+          <span class="nav-slip-badge" id="nav-slip-count" style="display: none;">(0)</span>
+        </a>
+        <a href="about.html" class="nav-item">
+          <span class="index-tag">03//</span> ABOUT
+        </a>
+        <a href="contact.html" class="nav-item">
+          <span class="index-tag">04//</span> CONTACT
+        </a>
+      </div>
+
+      <div class="header-actions-col">
+        <button class="toggle-btn" id="theme-toggle" aria-label="Toggle Dark Roast Mode">
+          <span class="toggle-indicator-dot" aria-hidden="true"></span>
+          <span class="theme-text">DARK ROAST</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-wrapper">
+    <div class="menu-workspace">
+      <!-- Main Menu Catalogue -->
+      <section class="menu-catalogue">
+        <div style="margin-bottom: 32px;">
+          <div class="stamp stamp-outline" style="margin-bottom: 12px;">DOCUMENT 03-A // PHYSICAL ZINE FORMAT</div>
+          <h1
+            style="font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 12px;">
+            Tariff of Provisions.
+          </h1>
+          <p class="mono" style="font-size: 0.85rem; color: var(--text-muted);">
+            CLICK ANY LINE ITEM TO APPEND TO YOUR INTERACTIVE PRINTABLE SLIP ON THE RIGHT.
+          </p>
+        </div>
+
+        <!-- Filter Category Tabs -->
+        <div class="category-tabs" role="tablist">
+          <button class="cat-btn active" data-category="all">ALL PROVISIONS</button>
+          <button class="cat-btn" data-category="drinks">01 // DRINKS &amp; ACID</button>
+          <button class="cat-btn" data-category="breakfast">02 // BREAKFAST RATIONS</button>
+          <button class="cat-btn" data-category="lunch">03 // MIDDAY GRAIN</button>
+          <button class="cat-btn" data-category="desserts">04 // BURNT DESSERTS</button>
+        </div>
+
+        <!-- Section: Drinks -->
+        <div class="menu-section" data-category="drinks">
+          <h2 class="menu-category-title">
+            <span>Drinks &amp; Kinetic Extractions</span>
+            <span class="sub mono">// 07:00 &ndash; CLOSE</span>
+          </h2>
+
+          <table class="menu-items-table">
+            <tbody>
+              <tr class="menu-row" data-name="Anaerobic Guji Espresso" data-price="5.50"
+                data-preview-img="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">LOT 01</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop" alt="Anaerobic Guji Espresso" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Anaerobic Guji Espresso
+                    <span class="item-tag">SINGLE ORIGIN</span>
+                  </div>
+                  <div class="item-description">
+                    Double shot (18.5g in, 39.5g out). Notes of fermented apricot, bergamot zest, volcanic rock.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$5.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Panama Geisha Pourover" data-price="8.50"
+                data-preview-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">LOT 04</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop" alt="Panama Geisha Washed Filter" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Panama Geisha Washed Filter
+                    <span class="item-tag">MICRO-LOT</span>
+                  </div>
+                  <div class="item-description">
+                    Hand-poured via Kalita Wave. Jasmine blossoms, crisp white peach, Meyer lemon tea clarity.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$8.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Brut Cold Drip & Pine Tonic" data-price="7.00"
+                data-preview-img="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">LOT 07</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600&auto=format&fit=crop" alt="Brut Cold Drip & Pine Tonic" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Brut Cold Drip &amp; Pine Tonic
+                    <span class="item-tag">SIGNATURE</span>
+                  </div>
+                  <div class="item-description">
+                    18-hour Dutch cold extraction over cinchona bark tonic and crushed Douglas fir needles.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$7.00</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Grass-Fed Flat White" data-price="6.00"
+                data-preview-img="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">LOT 09</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop" alt="Cultured Grass-Fed Flat White" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Cultured Grass-Fed Flat White
+                    <span class="item-tag">DAIRY / OAT</span>
+                  </div>
+                  <div class="item-description">
+                    Double ristretto pulled into 120ml micro-textured biodynamic pasture milk or pure oat.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$6.00</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Wild Cascara Kombucha" data-price="6.50"
+                data-preview-img="https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">LOT 12</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=600&auto=format&fit=crop" alt="Wild Cascara Kombucha" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Wild Cascara Kombucha
+                    <span class="item-tag">RAW FERMENT</span>
+                  </div>
+                  <div class="item-description">
+                    Fermented coffee cherry skins, hibiscus botanicals, and raw mountain honey.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$6.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section: Breakfast Rations -->
+        <div class="menu-section" data-category="breakfast">
+          <h2 class="menu-category-title">
+            <span>Breakfast Rations &amp; Hearth</span>
+            <span class="sub mono">// 07:00 &ndash; 11:30</span>
+          </h2>
+
+          <table class="menu-items-table">
+            <tbody>
+              <tr class="menu-row" data-name="Ancient Rye & Burnt Butter" data-price="6.50"
+                data-preview-img="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">RATION 01</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop" alt="Ancient Rye Slab & Burnt Butter" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Ancient Rye Slab &amp; Burnt Butter
+                    <span class="item-tag">VEG</span>
+                  </div>
+                  <div class="item-description">
+                    Toasted 48-hr naturally leavened rye, cultured churned noisette butter, Maldon sea salt flakes.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$6.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Soft Egg & Anchovy Soldiers" data-price="12.00"
+                data-preview-img="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">RATION 02</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=600&auto=format&fit=crop" alt="6-Minute Egg & Cantabrian Anchovy" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    6-Minute Egg &amp; Cantabrian Anchovy
+                    <span class="item-tag">SAVORY</span>
+                  </div>
+                  <div class="item-description">
+                    Soft pasture-raised egg, salted Cantabrian anchovy fillets, charred sourdough batons, Aleppo pepper.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$12.00</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Fermented Porridge & Fig" data-price="9.50"
+                data-preview-img="https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">RATION 03</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?q=80&w=600&auto=format&fit=crop" alt="Fermented Oat Groats & Roasted Fig" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Fermented Oat Groats &amp; Roasted Fig
+                    <span class="item-tag">VEGAN</span>
+                  </div>
+                  <div class="item-description">
+                    Koji-cultured steel-cut oats, slow-roasted black mission figs, cold-pressed hazelnut oil.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$9.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section: Midday Grain -->
+        <div class="menu-section" data-category="lunch">
+          <h2 class="menu-category-title">
+            <span>Midday Provisions &amp; Ferments</span>
+            <span class="sub mono">// 11:30 &ndash; 16:00</span>
+          </h2>
+
+          <table class="menu-items-table">
+            <tbody>
+              <tr class="menu-row" data-name="Smoked Salt Beef & Kraut" data-price="15.50"
+                data-preview-img="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">PROV 01</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=600&auto=format&fit=crop" alt="Smoked Salt Beef & Juniper Kraut" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Smoked Salt Beef &amp; Juniper Kraut
+                    <span class="item-tag">HOT RATION</span>
+                  </div>
+                  <div class="item-description">
+                    14-day brined brisket, house wild-fermented caraway cabbage, whole grain coarse mustard on sourdough.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$15.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Charred Leek & Taleggio Toastie" data-price="13.50"
+                data-preview-img="https://images.unsplash.com/photo-1528736235302-52922df5c122?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">PROV 02</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?q=80&w=600&auto=format&fit=crop" alt="Charred Leek & Raw Taleggio" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Charred Leek &amp; Raw Taleggio
+                    <span class="item-tag">VEG</span>
+                  </div>
+                  <div class="item-description">
+                    Wood-grilled sweet winter leeks, alpine washed-rind Taleggio, pickled mustard seed relish.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$13.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Ancient Einkorn & Herb Salad" data-price="11.00"
+                data-preview-img="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">PROV 03</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop" alt="Ancient Einkorn & Bitter Herb Bowl" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Ancient Einkorn &amp; Bitter Herb Bowl
+                    <span class="item-tag">RAW</span>
+                  </div>
+                  <div class="item-description">
+                    Castelfranco radicchio, sprouted einkorn, toasted walnuts, preserved Meyer lemon vinaigrette.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$11.00</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section: Desserts -->
+        <div class="menu-section" data-category="desserts">
+          <h2 class="menu-category-title">
+            <span>Burnt Desserts &amp; Confections</span>
+            <span class="sub mono">// ALL DAY</span>
+          </h2>
+
+          <table class="menu-items-table">
+            <tbody>
+              <tr class="menu-row" data-name="Charred Cardamom Knot" data-price="5.00"
+                data-preview-img="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">SWT 01</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=600&auto=format&fit=crop" alt="Charred Black Cardamom Knot" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Charred Black Cardamom Knot
+                    <span class="item-tag">FRESH</span>
+                  </div>
+                  <div class="item-description">
+                    Laminated enriched dough, coarsely cracked green and smoked cardamom pods, muscovado sugar.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$5.00</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Dark Roast Basque Cheesecake" data-price="7.50"
+                data-preview-img="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">SWT 02</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop" alt="Scorched Espresso Basque Cake" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Scorched Espresso Basque Cake
+                    <span class="item-tag">SIGNATURE</span>
+                  </div>
+                  <div class="item-description">
+                    Heavy caramelized black top crust, runny molten center infused with Guji espresso reduction.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$7.50</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+
+              <tr class="menu-row" data-name="Rye Chocolate Sea Salt Sable" data-price="4.00"
+                data-preview-img="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop">
+                <td class="menu-cell-meta">SWT 03</td>
+                <td class="menu-cell-thumb">
+                  <div class="item-thumb-box">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop" alt="Rye & 75% Dark Chocolate Sable" loading="lazy">
+                  </div>
+                </td>
+                <td class="menu-cell-content">
+                  <div class="item-name">
+                    Rye &amp; 75% Dark Chocolate Sable
+                    <span class="item-tag">CRUNCH</span>
+                  </div>
+                  <div class="item-description">
+                    Crumbly shortbread of freshly milled dark rye, Valrhona dark chocolate chunks, volcanic black salt.
+                  </div>
+                </td>
+                <td class="menu-cell-price">$4.00</td>
+                <td class="menu-cell-add">
+                  <button class="btn-add-item" title="Add to slip">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Sidebar: Physical Printed Receipt Slip Generator -->
+      <aside class="receipt-sidebar" aria-label="Interactive Order Slip">
+        <div class="receipt-slip">
+          <div class="receipt-header">
+            <div class="receipt-logo">ACID &amp; GRAIN</div>
+            <div class="receipt-sub">STARK ROASTERY // ORDER SLIP #AG-24</div>
+            <div class="mono" style="font-size: 0.65rem; margin-top: 4px; color: #666;">
+              TERMINAL 01 &bull; TABLE: WALK-UP
+            </div>
+          </div>
+
+          <!-- Dynamic Items Container -->
+          <div class="receipt-items-list" id="receipt-items">
+            <!-- Rendered via JavaScript -->
+          </div>
+
+          <div class="receipt-totals">
+            <div class="receipt-line-item">
+              <span>SUBTOTAL:</span>
+              <span id="receipt-subtotal">$0.00</span>
+            </div>
+            <div class="receipt-line-item">
+              <span>VAT / TAX (8%):</span>
+              <span id="receipt-tax">$0.00</span>
+            </div>
+            <div class="receipt-total-row">
+              <span>TOTAL DUE:</span>
+              <span id="receipt-total" style="color: var(--green-acid);">$0.00</span>
+            </div>
+          </div>
+
+          <div class="receipt-barcode">
+            <div class="barcode-strip" aria-hidden="true"></div>
+            <div style="font-size: 0.65rem; letter-spacing: 0.15em;">*49102-ACID-GRAIN-2026*</div>
+          </div>
+
+          <button class="btn-print-receipt" id="print-receipt">
+            PRINT / SAVE PHYSICAL SLIP
+          </button>
+          <button id="clear-receipt" class="mono"
+            style="margin-top: 10px; font-size: 0.7rem; text-decoration: underline; color: #888; text-align: center; cursor: pointer;">
+            [CLEAR SLIP]
+          </button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Editorial Brutalist Footer -->
+  <footer class="site-footer">
+    <div class="footer-top-grid">
+      <div class="footer-col">
+        <div class="footer-brand">ACID &amp; <span>Grain.</span></div>
+        <p class="footer-tagline">
+          An editorial counter-offensive against commercial blandness. Small-batch light roasting, sourdough
+          fermentation, and physical printed coffee culture.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">// NAVIGATION</div>
+        <ul class="footer-links">
+          <li><a href="index.html">01 // HOME</a></li>
+          <li><a href="menu.html">02 // MENU</a></li>
+          <li><a href="about.html">03 // ABOUT</a></li>
+          <li><a href="contact.html">04 // CONTACT</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">// HOURS &amp; DOCK</div>
+        <div class="mono footer-schedule">
+          TUE &ndash; SUN: 07:00 &ndash; 22:00<br>
+          MON: LAB SHUTDOWN<br>
+          STATION 04 &bull; FORGE ALLEY 14
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-heading">// SOCIAL &amp; CHANNELS</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-pill">
+            <span>↗</span> INSTAGRAM: @ACIDANDGRAIN
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-pill">
+            <span>↗</span> TIKTOK: @ACIDANDGRAIN
+          </a>
+          <a href="mailto:dispatch@acidandgrain.cafe" class="footer-social-pill">
+            <span>↗</span> EMAIL: DISPATCH@ACIDANDGRAIN.CAFE
+          </a>
+          <a href="tel:+18005552243" class="footer-social-pill">
+            <span>↗</span> PHONE: +1 (800) 555-ACID
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span>&copy; 2024&ndash;2026 ACID &amp; GRAIN. ALL RIGHTS OBSERVED.</span>
+      <span class="mono">ZERO COOKIES · ZERO TRACKERS · 100% PURE HTML/CSS/JS</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
